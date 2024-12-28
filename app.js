@@ -58,18 +58,16 @@ function tipoMoeda(){
         document.querySelector(".tipo_moeda2").innerHTML = "$";
     }
 
-    if ((moeda1Selecionada != "CLP") || (moeda2Selecionada != "BRL")){
-        data = JSON.parse(consomeAPI(URL + moeda1Selecionada));
-        conversionRates = new Object(data['conversion_rates']);
+    data = JSON.parse(consomeAPI(URL + moeda1Selecionada));
+    conversionRates = new Object(data['conversion_rates']);
         
-        let dataAgora = new Date(Date.now());
-        valorMoeda2 = conversionRates[moeda2Selecionada].toFixed(6);
-        registroValorMoeda(moeda1Selecionada, moeda2Selecionada, valorMoeda2, true);
+    let dataAgora = new Date(Date.now());
+    valorMoeda2 = conversionRates[moeda2Selecionada].toFixed(6);
+    registroValorMoeda(moeda1Selecionada, moeda2Selecionada, valorMoeda2, true);
 
-        mensagem.style.display = "";
-        mensagemEscrita = "(" + dataAgora.toUTCString() + ")" + '<br>' +  "1.00" + moeda1Selecionada + " = " + valorMoeda2 + moeda2Selecionada + '</br>';
-        mensagem.innerHTML = mensagemEscrita;
-    }
+    mensagem.style.display = "";
+    mensagemEscrita = "(" + dataAgora.toUTCString() + ")" + '<br>' +  "1.00" + moeda1Selecionada + " = " + valorMoeda2 + moeda2Selecionada + '</br>';
+    mensagem.innerHTML = mensagemEscrita;
 
 }
 
