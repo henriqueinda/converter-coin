@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <title>CONVERTER | $</title>
+</head>
+<body>
+
+    <header class="cabecalho">
+        
+        <h1>CONVERTER | $</h1>
+
+    </header>
+
+    <main class="conteudo">
+
+        <section class="conteudo__texto">
+            <!--<p class="conteudo__texto-code">TEXTO</p>-->
+            <textarea
+            wrap="soft"
+            rows="16"
+            cols="40"
+            maxlength="100"
+            autocomplete="off" 
+            class="conteudo__texto-code" 
+            type="text" 
+            name="conteudo__texto-code" 
+            id="conteudo__texto-code" 
+            value=""
+            readonly></textarea>
+            
+            <section class="conteudo__texto-botoes">
+                <button id="botao-copiar">Copiar</button>
+                <button onclick="voltar()" id="botao-voltar">Voltar</button>
+            </section>
+        </section>
+
+        <section class="conteudo__aplicacao">
+            <a class="conteudo__nome-moeda1">DE</a>
+            <section class="conteudo__moeda">
+                <select onchange="tipoMoeda()" name="moeda1" id="moeda1">
+                    <!-- <option selected disabled value="">$</option> -->
+                    <option selected value="CLP">CLP</option>
+                    <option value="BRL">BRL</option>
+                    <option value="USD">USD</option>
+                </select>
+
+                <div class="conteudo__moeda1__valor">
+                    <a class="tipo_moeda1">$</a>
+                    <input type="number" name="valor__moeda1" id="valor__moeda1" placeholder="Valor">
+                </div>
+            </section>
+
+            <a class="conteudo__nome-moeda2">PARA</a>
+            <section class="conteudo__moeda">
+                <select onchange="tipoMoeda()" name="moeda2" id="moeda2">
+                    <!-- <option selected disabled value="">$</option> -->
+                    <option value="CLP">CLP</option>
+                    <option selected value="BRL">BRL</option>
+                    <option value="USD">USD</option>
+                </select>
+
+                <div class="conteudo__moeda2__valor">
+                    <a class="tipo_moeda2">R$</a>
+                    <input type="number" name="valor__moeda2" id="valor__moeda2" placeholder="Valor" disabled="true">
+                </div>
+            </section>
+
+            <p class="conteudo__mensagem">MENSAGEM</p>
+
+            <section class="conteudo__txt">
+                <p class="conteudo__nome-txt">.TXT</p>
+                <input type="text" class="conteudo__input-txt" id="conteudo__input-txt" maxlength="25" placeholder="Descrição">
+            </section>
+        </section>
+
+        <section class="conteudo__botoes">
+            <button onclick="converteValores()" class="conteudo__botoes_botao-converter" id="botao-converter">Converter</button>
+            <button onclick="gerarTexto()" class="conteudo__botoes_botao-texto" id="botao-texto" disabled>Gerar .txt</button>
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+
+        <p class="rodape__texto">Desenvolvido por</p>
+        <a class="rodape__link-dev" href="https://www.instagram.com/henriqueinda/">@henriqueinda</a>
+
+    </footer>
+
+    <script src="./app.js" defer></script>
+</body>
+</html>
