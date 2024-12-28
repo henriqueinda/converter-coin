@@ -212,6 +212,10 @@ button:hover{
         padding: 9%;
     }
 
+    select{
+        width: 85px;
+    }
+
     .conteudo__botoes{
         padding: 15% 0% 0% 0%;
     }
