@@ -14,6 +14,10 @@ const botaoConverter = document.getElementById("botao-converter");
 const botaoCopiar = document.getElementById("botao-copiar");
 const botaoVoltar = document.getElementById("botao-voltar");
 
+let data = JSON.parse(consomeAPI(URL + "CLP"));
+let conversionRates = new Object(data['conversion_rates']);
+var valorMoeda2 = conversionRates["CLP"].toFixed(6);
+registroValorMoeda("CLP", "BRL", valorMoeda2, true);
 
 let valores = new Object();
 valores.tipomoeda1 = "";
@@ -55,12 +59,12 @@ function tipoMoeda(){
         document.querySelector(".tipo_moeda2").innerHTML = "$";
     }
 
-    if ((moeda1Selecionada != "") && (moeda2Selecionada != "")){
-        let data = JSON.parse(consomeAPI(URL + moeda1Selecionada));
-        let conversionRates = new Object(data['conversion_rates']);
+    if ((moeda1Selecionada != "CLP") || (moeda2Selecionada != "BRL")){
+        data = JSON.parse(consomeAPI(URL + moeda1Selecionada));
+        conversionRates = new Object(data['conversion_rates']);
         
         let dataAgora = new Date(Date.now());
-        var valorMoeda2 = conversionRates[moeda2Selecionada].toFixed(6);
+        valorMoeda2 = conversionRates[moeda2Selecionada].toFixed(6);
         registroValorMoeda(moeda1Selecionada, moeda2Selecionada, valorMoeda2, true);
 
         mensagem.style.display = "";
